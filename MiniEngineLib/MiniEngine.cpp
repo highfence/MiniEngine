@@ -22,7 +22,9 @@ namespace MiniEngineLib
 		_mainWindow = std::make_unique<MainWindow>();
 		_mainWindow->InitWindow(hInst, nCmdShow);
 
-		_mainWindow->Create(1200, 800);
+		auto b = _mainWindow->Create(1200, 800);
+		
+		printf("A");
 	}
 
 	void MiniEngine::Run()

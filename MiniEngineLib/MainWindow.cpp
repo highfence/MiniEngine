@@ -15,7 +15,7 @@ namespace MiniEngineLib
 	BOOL MainWindow::InitWindow(HINSTANCE hInst, INT nCmdShow)
 	{
 		_hInst = hInst;
-		_cmdShow = _cmdShow;
+		_cmdShow = nCmdShow;
 
 		WNDCLASS wndClass;
 		wndClass.cbClsExtra = 0;
@@ -30,12 +30,12 @@ namespace MiniEngineLib
 		wndClass.style = CS_HREDRAW | CS_VREDRAW;
 
 		if (!RegisterClass(&wndClass))
-			return FALSE;
+			return false;
 
 		// Static Instance Setting.
 		mainWindowHandler = this;
 
-		return TRUE;
+		return true;
 	}
 
 	BOOL MainWindow::Create(INT width, INT height)
