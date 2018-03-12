@@ -1,7 +1,14 @@
 #pragma once
 
+#include <memory>
+
+
 namespace MiniEngineLib
 {
+	/// 전방선언.
+	class MiniTimer;
+	class MainWindow;
+
 	///	MiniEngine class
 	/// 엔진 클래스 본체. 
 	class MiniEngine
@@ -20,8 +27,12 @@ namespace MiniEngineLib
 
 	private :
 
-		HINSTANCE m_hInst;
-		INT m_nCmdShow;
+		HINSTANCE _hInst;
+		INT _cmdShow;
+
+		std::unique_ptr<MiniTimer> _timer;
+		std::unique_ptr<MainWindow> _mainWindow;
+
 
 	};
 }

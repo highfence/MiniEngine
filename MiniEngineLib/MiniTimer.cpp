@@ -12,7 +12,7 @@ namespace MiniEngineLib
 	{
 	}
 
-	void MiniTimer::Init()
+	void MiniTimer::InitTimer()
 	{
 		LARGE_INTEGER qwTicksPerSec, qwTime;
 
