@@ -34,6 +34,5 @@ namespace MiniEngineLib
 		std::unique_ptr<MiniTimer> _timer;
 		std::unique_ptr<MainWindow> _mainWindow;
 
-
 	};
 }

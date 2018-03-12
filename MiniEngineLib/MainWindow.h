@@ -16,6 +16,10 @@ namespace MiniEngineLib
 		// For window message dispatcher
 		INT_PTR CALLBACK MainWindowProc(HWND hWnd, UINT iMesshage, WPARAM wParam, LPARAM lParam);
 
+		BOOL IsInitialized() const { return _isWindowCreated; }
+
+		HWND GetWinHandle() const { return _hWnd; }
+
 	private :
 
 		HWND _hWnd;
@@ -26,6 +30,7 @@ namespace MiniEngineLib
 		INT _windowWidth = 1200;
 		INT _windowHeight = 800;
 
+		BOOL _isWindowCreated = FALSE;
 	};
 
 	LRESULT CALLBACK WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);

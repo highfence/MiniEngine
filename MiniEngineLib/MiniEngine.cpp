@@ -20,11 +20,12 @@ namespace MiniEngineLib
 		_timer->InitTimer();
 		
 		_mainWindow = std::make_unique<MainWindow>();
-		_mainWindow->InitWindow(hInst, nCmdShow);
 
-		auto b = _mainWindow->Create(1200, 800);
-		
-		printf("A");
+		_mainWindow->InitWindow(hInst, nCmdShow);
+		_mainWindow->Create(1920, 1200);
+
+		if (_mainWindow->IsInitialized() == FALSE)
+			MessageBox(_mainWindow->GetWinHandle(), TEXT("Engine Initialize failed."), NULL, NULL);
 	}
 
 	void MiniEngine::Run()

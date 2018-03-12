@@ -48,7 +48,16 @@ namespace MiniEngineLib
 			CW_USEDEFAULT, CW_USEDEFAULT, _windowWidth, _windowHeight,
 			NULL, (HMENU)NULL, _hInst, NULL);
 
-		return ShowWindow(_hWnd, _cmdShow);
+		if (_hWnd == NULL)
+		{
+			_isWindowCreated = FALSE;
+			return _isWindowCreated;
+		}
+
+		ShowWindow(_hWnd, _cmdShow);
+
+		_isWindowCreated = TRUE;
+		return _isWindowCreated;
 	}
 
 	INT_PTR MainWindow::MainWindowProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
