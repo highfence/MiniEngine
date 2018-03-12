@@ -27,9 +27,28 @@ namespace MiniEngineLib
 
 	void MiniEngine::Run()
 	{
+		const float frameTime = 1.f / 60.f;
+		static float accTime = 0.f;
+		_timer->ProcessTime();
+
 		while (true)
 		{
+			accTime += _timer->GetElapsedTime();
+			if (PeekMessage(&_msg, NULL, 0, 0, PM_REMOVE))
+			{
+				if (_msg.message == WM_QUIT)
+					break;
 
+				TranslateMessage(&_msg);
+				DispatchMessage(&_msg);
+			}
+			else
+			{
+				if (accTime >= frameTime)
+				{
+					accTime = 0.f;
+				}
+			}
 		}
 	}
 }

@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include "../MiniEngineLib/MiniEngine.h"
 
-INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE prevhInstance, LPSTR lpszCmdParam, INT nCmdShow)
+int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE prevhInstance, LPSTR lpszCmdParam, INT nCmdShow)
 {
 	using namespace MiniEngineLib;
 

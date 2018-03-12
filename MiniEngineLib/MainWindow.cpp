@@ -23,7 +23,7 @@ namespace MiniEngineLib
 		wndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 		wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		wndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-		wndClass.hInstance = reinterpret_cast<HINSTANCE>(GetModuleHandle(0));
+		wndClass.hInstance = _hInst;
 		wndClass.lpfnWndProc = WinMessageDispatcher;
 		wndClass.lpszClassName = _appName;
 		wndClass.lpszMenuName = NULL;
@@ -72,7 +72,7 @@ namespace MiniEngineLib
 		return (DefWindowProc(hWnd, iMessage, wParam, lParam));
 	}
 
-	LRESULT WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+	LRESULT CALLBACK WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 		switch (iMessage)
 		{

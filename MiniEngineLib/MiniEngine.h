@@ -29,6 +29,7 @@ namespace MiniEngineLib
 
 		HINSTANCE _hInst;
 		INT _cmdShow;
+		MSG _msg;
 
 		std::unique_ptr<MiniTimer> _timer;
 		std::unique_ptr<MainWindow> _mainWindow;
