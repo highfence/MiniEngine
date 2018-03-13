@@ -8,6 +8,8 @@ namespace MiniEngineLib
 		RenderWindow();
 		~RenderWindow();
 
+		BOOL Create(HINSTANCE hInst, HWND hWnd);
+
 	private :
 	};
 }

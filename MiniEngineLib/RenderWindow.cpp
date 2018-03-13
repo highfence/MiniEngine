@@ -10,4 +10,9 @@ namespace MiniEngineLib
 	RenderWindow::~RenderWindow()
 	{
 	}
+
+	BOOL RenderWindow::Create(HINSTANCE hInst, HWND hWnd)
+	{
+		return TRUE;
+	}
 }
