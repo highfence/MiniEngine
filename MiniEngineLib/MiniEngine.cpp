@@ -49,6 +49,7 @@ namespace MiniEngineLib
 			{
 				if (accTime >= frameTime)
 				{
+					_mainWindow.get()->Update(accTime);
 					accTime = 0.f;
 				}
 			}

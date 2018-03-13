@@ -60,6 +60,10 @@ namespace MiniEngineLib
 		return _isWindowCreated;
 	}
 
+	VOID MainWindow::Update(const float deltaTime)
+	{
+	}
+
 	INT_PTR MainWindow::MainWindowProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 		switch (iMessage)

@@ -13,12 +13,13 @@ namespace MiniEngineLib
 		BOOL InitWindow(HINSTANCE hInst, INT nCmdShow);
 		BOOL Create(INT width = 1200, INT height = 800);
 
-		// For window message dispatcher
-		INT_PTR CALLBACK MainWindowProc(HWND hWnd, UINT iMesshage, WPARAM wParam, LPARAM lParam);
+		VOID Update(const float deltaTime);
 
 		BOOL IsInitialized() const { return _isWindowCreated; }
-
 		HWND GetWinHandle() const { return _hWnd; }
+
+		// For window message dispatcher
+		INT_PTR CALLBACK MainWindowProc(HWND hWnd, UINT iMesshage, WPARAM wParam, LPARAM lParam);
 
 	private :
 
