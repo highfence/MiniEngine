@@ -12,10 +12,24 @@ namespace MiniEngineLib
 		virtual BOOL Create(INT width, INT height) override;
 		virtual VOID MoveWindow() override;
 
-		virtual BOOL IsInitialized() const override;
+		virtual BOOL IsInitialized() const override { return _isWindowCreated; }
 
-		virtual LRESULT MessageHandler(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) override;
+		VOID CreateChildWindows(HWND hWnd);
+		VOID CommandProcedure(WPARAM wParam, LPARAM lParam);
 
 	private :
+
+		HINSTANCE _hInst;
+		HWND _hThisHandle;
+		HWND _hParentHandle;
+
+		INT _windowWidth;
+		INT _windowHeight;
+
+		BOOL _isWindowCreated = FALSE;
 	};
+
+	static EditWindow* EditWindowHandle = nullptr;
+
+	LRESULT CALLBACK EditWindowProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 }

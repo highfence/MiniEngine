@@ -27,6 +27,15 @@
     <ClInclude Include="MainWindow.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="EditWindow.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderWindow.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="IWindowHandleable.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniEngine.cpp">
@@ -39,6 +48,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MainWindow.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="EditWindow.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWindow.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

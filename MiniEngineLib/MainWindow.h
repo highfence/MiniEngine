@@ -5,9 +5,7 @@ namespace MiniEngineLib
 	class MainWindow
 	{
 	public :
-
-		MainWindow();
-		
+		MainWindow() = default;
 		~MainWindow();
 
 		BOOL InitWindow(HINSTANCE hInst, INT nCmdShow);
