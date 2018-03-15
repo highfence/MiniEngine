@@ -36,7 +36,7 @@ namespace MiniEngineLib
 		_windowWidth = width;
 		_windowHeight = height;
 
-		_hThisHandle = CreateWindow(TEXT("Option Window"), NULL, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN,
+		_hThisHandle = CreateWindow(TEXT("Edit Window"), NULL, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN,
 			0, 0, 0, 0, _hParentHandle, (HMENU)0, _hInst, NULL);
 	}
 

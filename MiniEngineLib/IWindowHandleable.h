@@ -14,7 +14,5 @@ namespace MiniEngineLib
 		virtual VOID MoveWindow() = 0;
 
 		virtual BOOL IsInitialized() const = 0;
-
-		virtual LRESULT MessageHandler(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam) = 0;
 	};
 }
