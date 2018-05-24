@@ -16,33 +16,44 @@ namespace MiniEngineLib
 		WNDCLASS WndClass;
 		WndClass.cbClsExtra = 0;
 		WndClass.cbWndExtra = 0;
-		WndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+		WndClass.hbrBackground = (HBRUSH)GetStockObject(DKGRAY_BRUSH);
 		WndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		WndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 		WndClass.hInstance = hInst;
 		WndClass.lpfnWndProc = EditWindowProc;
-		WndClass.lpszClassName = L"Option Window";
+		WndClass.lpszClassName = L"Edit Window";
 		WndClass.lpszMenuName = NULL;
 		WndClass.style = CS_HREDRAW | CS_VREDRAW;
 
 		if (!RegisterClass(&WndClass))
-			return;
+			return FALSE;
 
 		EditWindowHandle = this;
+
+		return TRUE;
 	}
 
-	BOOL EditWindow::Create(INT width, INT height)
+	BOOL EditWindow::Create(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
-		_windowWidth = width;
+		_windowWidth  = width;
 		_windowHeight = height;
+		_positionX = positionX;
+		_positionY = positionY;
 
-		_hThisHandle = CreateWindow(TEXT("Edit Window"), NULL, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN,
-			0, 0, 0, 0, _hParentHandle, (HMENU)0, _hInst, NULL);
+		_hThisHandle = CreateWindow(TEXT("Edit Window"), NULL, WS_CHILD | WS_VISIBLE,
+			_positionX, _positionY, _windowWidth, _windowHeight, _hParentHandle, (HMENU)0, _hInst, NULL);
+
+		if (_hThisHandle == INVALID_HANDLE_VALUE || _hThisHandle == NULL)
+			return FALSE;
+
+		_isWindowCreated = TRUE;
+		return TRUE;
 	}
 
 	VOID EditWindow::MoveWindow()
 	{
-		::MoveWindow(_hThisHandle, 800, 0, 300, 600, TRUE);
+		if (_hThisHandle != INVALID_HANDLE_VALUE)
+			::MoveWindow(_hThisHandle, 800, 0, _windowWidth, _windowHeight, TRUE);
 	}
 
 	VOID EditWindow::CreateChildWindows(HWND hWnd)

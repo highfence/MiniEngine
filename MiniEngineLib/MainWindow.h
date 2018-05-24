@@ -2,6 +2,9 @@
 
 namespace MiniEngineLib
 {
+	class EditWindow;
+	class TextWindow;
+
 	class MainWindow
 	{
 	public :
@@ -9,7 +12,7 @@ namespace MiniEngineLib
 		~MainWindow();
 
 		BOOL InitWindow(HINSTANCE hInst, INT nCmdShow);
-		BOOL Create(INT width = 1200, INT height = 800);
+		BOOL Create(const INT width = 1200, const INT height = 800, const INT positionX = 0, const INT positionY = 0);
 
 		VOID Update(const float deltaTime);
 
@@ -30,6 +33,9 @@ namespace MiniEngineLib
 		INT _windowHeight = 800;
 
 		BOOL _isWindowCreated = FALSE;
+
+		EditWindow * _editWindow = nullptr;
+		TextWindow * _textWindow = nullptr;
 	};
 
 	LRESULT CALLBACK WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);

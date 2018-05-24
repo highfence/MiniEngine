@@ -25,23 +25,35 @@ namespace MiniEngineLib
 		WndClass.style = CS_HREDRAW | CS_VREDRAW;
 
 		if (!RegisterClass(&WndClass))
-			return;
+			return FALSE;
 
 		RenderWindowHandle = this;
+
+		return TRUE;
 	}
 
-	BOOL RenderWindow::Create(INT width, INT height)
+	BOOL RenderWindow::Create(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
 		_windowWidth = width;
 		_windowHeight = height;
 
+		_positionX = positionX;
+		_positionY = positionY;
+
 		_hThisHandle = CreateWindow(TEXT("Render Window"), NULL, WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN,
-			0, 0, 0, 0, _hParentHandle, (HMENU)0, _hInst, NULL);
+			_positionX, _positionY, _windowWidth, _windowHeight, _hParentHandle, (HMENU)0, _hInst, NULL);
+
+		if (_hThisHandle == INVALID_HANDLE_VALUE)
+			return FALSE;
+
+		_isWindowCreated = TRUE;
+		return TRUE;
 	}
 
 	VOID RenderWindow::MoveWindow()
 	{
-		::MoveWindow(_hThisHandle, 0, 0, 800, 600, TRUE);
+		if (_hThisHandle != INVALID_HANDLE_VALUE)
+			::MoveWindow(_hThisHandle, 0, 0, 800, 600, TRUE);
 	}
 
 	VOID RenderWindow::CommandProcedure(WPARAM wParam, LPARAM lParam)
@@ -55,13 +67,15 @@ namespace MiniEngineLib
 		{
 		case WM_CREATE :
 		{
+
+			break;
 		}
 
 		case WM_COMMAND:
 		{
 
+			break;
 		}
-
 		}
 
 		return (DefWindowProc(hWnd, iMessage, wParam, lParam));

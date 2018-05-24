@@ -3,10 +3,6 @@
 
 namespace MiniEngineLib
 {
-	MainWindow::MainWindow()
-	{
-	}
-
 	MainWindow::~MainWindow()
 	{
 		DestroyWindow(_hWnd);
@@ -20,7 +16,7 @@ namespace MiniEngineLib
 		WNDCLASS wndClass;
 		wndClass.cbClsExtra = 0;
 		wndClass.cbWndExtra = 0;
-		wndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+		wndClass.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 		wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		wndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 		wndClass.hInstance = _hInst;
@@ -38,7 +34,7 @@ namespace MiniEngineLib
 		return true;
 	}
 
-	BOOL MainWindow::Create(INT width, INT height)
+	BOOL MainWindow::Create(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
 		_windowWidth = width;
 		_windowHeight = height;
@@ -72,6 +68,14 @@ namespace MiniEngineLib
 		// Child Window Initialize.
 		case WM_CREATE :
 		{
+			_editWindow = new EditWindow();
+			_editWindow->InitWindow(_hInst, hWnd);
+			_editWindow->Create(400, 800, 1520, 0);
+
+			_textWindow = new TextWindow();
+			_textWindow->InitWindow(_hInst, hWnd);
+			_textWindow->Create(1920, 400, 0, 800);
+
 			break;
 		}
 
