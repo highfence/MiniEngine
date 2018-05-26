@@ -12,6 +12,12 @@
     <Filter Include="WindowClasses">
       <UniqueIdentifier>{c34e2ecb-207f-4a5b-bb25-e738ce2f7d0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{78d26fc9-57a9-4baa-8db7-d9fb823db6b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Math">
+      <UniqueIdentifier>{f45fa763-415d-40ab-b8c6-966363fedd0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniEngine.h">
@@ -38,6 +44,9 @@
     <ClInclude Include="TextWindow.h">
       <Filter>WindowClasses</Filter>
     </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Utils\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniEngine.cpp">
@@ -60,6 +69,9 @@
     </ClCompile>
     <ClCompile Include="TextWindow.cpp">
       <Filter>WindowClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Utils\Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
