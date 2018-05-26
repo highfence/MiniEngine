@@ -50,7 +50,8 @@ namespace MiniEngineLib
 			return _isWindowCreated;
 		}
 
-		_isWindowCreated = ShowWindow(_hWnd, _cmdShow);
+		ShowWindow(_hWnd, _cmdShow);
+		_isWindowCreated = TRUE;
 
 		return _isWindowCreated;
 	}
@@ -67,8 +68,6 @@ namespace MiniEngineLib
 		// Child Window Initialize.
 		case WM_CREATE :
 		{
-
-
 			_editWindow = new EditWindow();
 			_editWindow->InitWindow(_hInst, hWnd);
 			_editWindow->Create(350, 850, 1570, 0);
@@ -94,8 +93,6 @@ namespace MiniEngineLib
 	BOOL MainWindow::initializeChildWindows()
 	{
 		BOOL isInitializedWell = FALSE;
-
-
 
 		return isInitializedWell;
 	}

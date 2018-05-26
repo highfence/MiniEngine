@@ -35,4 +35,6 @@ namespace MiniEngineLib
 		std::unique_ptr<MainWindow> _mainWindow;
 
 	};
+
+	extern HINSTANCE gEngineInstance;
 }

@@ -18,6 +18,9 @@
     <Filter Include="Utils\Math">
       <UniqueIdentifier>{f45fa763-415d-40ab-b8c6-966363fedd0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\Debug">
+      <UniqueIdentifier>{e13cd8fc-a36e-4fe4-895c-1b01944609f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MiniEngine.h">
@@ -47,6 +50,9 @@
     <ClInclude Include="Vector.h">
       <Filter>Utils\Math</Filter>
     </ClInclude>
+    <ClInclude Include="DebugHelper.h">
+      <Filter>Utils\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniEngine.cpp">
@@ -72,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="Vector.cpp">
       <Filter>Utils\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugHelper.cpp">
+      <Filter>Utils\Debug</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
