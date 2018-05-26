@@ -11,8 +11,8 @@ namespace MiniEngineLib
 
 		virtual BOOL InitWindow(HINSTANCE hInst, HWND hWnd) = 0;
 		virtual BOOL Create(const INT width, const INT height, const INT positionX, const INT positionY) = 0;
-		virtual VOID MoveWindow() = 0;
 
 		virtual BOOL IsInitialized() const = 0;
+		virtual VOID ChangeSize(const INT width, const INT height, const INT positionX, const INT positionY) = 0;
 	};
 }

@@ -27,7 +27,7 @@
     <ClInclude Include="MiniTimer.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RenderWindow.h" />
-    <ClInclude Include="TextWindow.h" />
+    <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
@@ -58,7 +58,7 @@
     <ClCompile Include="RenderWindow.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="TextWindow.cpp">
+    <ClCompile Include="ConsoleWindow.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="Vector.cpp">

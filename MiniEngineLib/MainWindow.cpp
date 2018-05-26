@@ -68,13 +68,6 @@ namespace MiniEngineLib
 		// Child Window Initialize.
 		case WM_CREATE :
 		{
-			//_editWindow = new EditWindow();
-			//_editWindow->InitWindow(_hInst, hWnd);
-			//_editWindow->Create(350, 850, 1570, 0);
-
-			//_textWindow = new TextWindow();
-			//_textWindow->InitWindow(_hInst, hWnd);
-			//_textWindow->Create(1920, 350, 0, 850);
 			initializeChildWindows(hWnd);
 
 			break;
@@ -83,8 +76,18 @@ namespace MiniEngineLib
 		// If Window was moved
 		case WM_SIZE :
 		{
-			if (wParam != SIZE_MINIMIZED)
-				break;
+			//if (wParam != SIZE_MINIMIZED)
+			//	break;
+
+			static RECT rt;
+			GetClientRect(hWnd, &rt);
+			InvalidateRect(hWnd, NULL, TRUE);
+
+			_windowWidth = rt.right - rt.left;
+			_windowHeight = rt.bottom - rt.top;
+
+			changeChildWindowsSize(_windowWidth, _windowHeight);
+			break;
 		}
 		}
 
@@ -97,15 +100,37 @@ namespace MiniEngineLib
 
 		Vector<int> divPosition(_windowWidth * 0.8f, _windowHeight * 0.75f);
 
+		_renderWindow = new RenderWindow();
+		_renderWindow->InitWindow(_hInst, hWnd);
+		_renderWindow->Create(divPosition._x, divPosition._y, 0, 0);
+
 		_editWindow = new EditWindow();
 		_editWindow->InitWindow(_hInst, hWnd);
 		_editWindow->Create(_windowWidth - divPosition._x, _windowHeight, divPosition._x, 0);
 
-		_textWindow = new TextWindow();
-		_textWindow->InitWindow(_hInst, hWnd);
-		_textWindow->Create(divPosition._x, _windowHeight - divPosition._y, 0, divPosition._y);
+		_consoleWindow = new ConsoleWindow();
+		_consoleWindow->InitWindow(_hInst, hWnd);
+		_consoleWindow->Create(divPosition._x, _windowHeight - divPosition._y, 0, divPosition._y);
+
+		changeChildWindowsSize(_windowWidth, _windowHeight);
 
 		return isInitializedWell;
+	}
+
+	BOOL MainWindow::changeChildWindowsSize(const INT clientWidth, const INT clientHeight)
+	{
+		Vector<int> divPosition(clientWidth * 0.8f, clientHeight * 0.75f);
+
+		if (_renderWindow != nullptr)
+			_renderWindow->ChangeSize(divPosition._x, divPosition._y, 0, 0);
+
+		if (_editWindow != nullptr)
+			_editWindow->ChangeSize(clientWidth - divPosition._x, clientHeight, divPosition._x, 0);
+
+		if (_consoleWindow != nullptr)
+			_consoleWindow->ChangeSize(divPosition._x, clientHeight - divPosition._y, 0, divPosition._y);
+
+		return TRUE;
 	}
 
 	LRESULT CALLBACK WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)

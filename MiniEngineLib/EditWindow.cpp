@@ -50,10 +50,10 @@ namespace MiniEngineLib
 		return TRUE;
 	}
 
-	VOID EditWindow::MoveWindow()
+	VOID EditWindow::ChangeSize(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
-		if (_hThisHandle != INVALID_HANDLE_VALUE)
-			::MoveWindow(_hThisHandle, 800, 0, _windowWidth, _windowHeight, TRUE);
+		if (_hThisHandle != INVALID_HANDLE_VALUE && _hThisHandle != NULL)
+			::MoveWindow(_hThisHandle, positionX, positionY, width, height, TRUE);
 	}
 
 	VOID EditWindow::CreateChildWindows(HWND hWnd)

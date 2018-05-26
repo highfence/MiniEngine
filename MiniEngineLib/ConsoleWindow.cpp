@@ -1,14 +1,14 @@
 
 #include "pch.h"
-#include "TextWindow.h"
+#include "ConsoleWindow.h"
 
 namespace MiniEngineLib
 {
-	TextWindow::TextWindow() { }
+	ConsoleWindow::ConsoleWindow() { }
 
-	TextWindow::~TextWindow() { }
+	ConsoleWindow::~ConsoleWindow() { }
 
-	BOOL TextWindow::InitWindow(HINSTANCE hInst, HWND hWnd)
+	BOOL ConsoleWindow::InitWindow(HINSTANCE hInst, HWND hWnd)
 	{
 		_hInst = hInst;
 		_hParentHandle = hWnd;
@@ -33,7 +33,7 @@ namespace MiniEngineLib
 		return TRUE;
 	}
 
-	BOOL TextWindow::Create(const INT width, const INT height, const INT positionX, const INT positionY)
+	BOOL ConsoleWindow::Create(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
 		_windowWidth = width;
 		_windowHeight = height;
@@ -51,10 +51,10 @@ namespace MiniEngineLib
 		return TRUE;
 	}
 
-	VOID TextWindow::MoveWindow()
+	VOID ConsoleWindow::ChangeSize(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
 		if (_hThisHandle != INVALID_HANDLE_VALUE && _hThisHandle != NULL)
-			::MoveWindow(_hThisHandle, 0, 600, 1100, 300, TRUE);
+			::MoveWindow(_hThisHandle, positionX, positionY, width, height, TRUE);
 	}
 
 	LRESULT CALLBACK TextWindowProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)

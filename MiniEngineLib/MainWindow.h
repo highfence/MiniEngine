@@ -3,7 +3,8 @@
 namespace MiniEngineLib
 {
 	class EditWindow;
-	class TextWindow;
+	class ConsoleWindow;
+	class RenderWindow;
 
 	class MainWindow
 	{
@@ -25,6 +26,7 @@ namespace MiniEngineLib
 	private :
 
 		BOOL initializeChildWindows(HWND hWnd);
+		BOOL changeChildWindowsSize(const INT clientWidth, const INT clientHeight);
 
 		HWND _hWnd;
 		HINSTANCE _hInst;
@@ -37,7 +39,8 @@ namespace MiniEngineLib
 		BOOL _isWindowCreated = FALSE;
 
 		EditWindow * _editWindow = nullptr;
-		TextWindow * _textWindow = nullptr;
+		ConsoleWindow * _consoleWindow = nullptr;
+		RenderWindow* _renderWindow = nullptr;
 	};
 
 	LRESULT CALLBACK WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);

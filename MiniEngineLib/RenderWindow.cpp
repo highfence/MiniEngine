@@ -50,11 +50,12 @@ namespace MiniEngineLib
 		return TRUE;
 	}
 
-	VOID RenderWindow::MoveWindow()
+	VOID RenderWindow::ChangeSize(const INT width, const INT height, const INT positionX, const INT positionY)
 	{
-		if (_hThisHandle != INVALID_HANDLE_VALUE)
-			::MoveWindow(_hThisHandle, 0, 0, 800, 600, TRUE);
+		if (_hThisHandle != INVALID_HANDLE_VALUE && _hThisHandle != NULL)
+			::MoveWindow(_hThisHandle, positionX, positionY, width, height, TRUE);
 	}
+
 
 	VOID RenderWindow::CommandProcedure(WPARAM wParam, LPARAM lParam)
 	{

@@ -11,7 +11,7 @@ namespace MiniEngineLib
 
 		virtual BOOL InitWindow(HINSTANCE hInst, HWND hWnd) override;
 		virtual BOOL Create(const INT width, const INT height, const INT positionX, const INT positionY) override;
-		virtual VOID MoveWindow() override;
+		virtual VOID ChangeSize(const INT width, const INT height, const INT positionX, const INT positionY) override;
 
 		virtual BOOL IsInitialized() const override { return _isWindowCreated; }
 

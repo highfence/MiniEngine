@@ -15,7 +15,7 @@
 #include "MainWindow.h"
 #include "RenderWindow.h"
 #include "EditWindow.h"
-#include "TextWindow.h"
+#include "ConsoleWindow.h"
 
 // Math Headers
 #include "Vector.h"

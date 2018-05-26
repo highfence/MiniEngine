@@ -37,9 +37,6 @@
     <ClInclude Include="RenderWindow.h">
       <Filter>WindowClasses</Filter>
     </ClInclude>
-    <ClInclude Include="TextWindow.h">
-      <Filter>WindowClasses</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Utils\Math</Filter>
     </ClInclude>
@@ -54,6 +51,9 @@
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleWindow.h">
+      <Filter>WindowClasses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -72,9 +72,6 @@
     <ClCompile Include="RenderWindow.cpp">
       <Filter>WindowClasses</Filter>
     </ClCompile>
-    <ClCompile Include="TextWindow.cpp">
-      <Filter>WindowClasses</Filter>
-    </ClCompile>
     <ClCompile Include="Vector.cpp">
       <Filter>Utils\Math</Filter>
     </ClCompile>
@@ -83,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="MiniTimer.cpp">
       <Filter>Utils\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleWindow.cpp">
+      <Filter>WindowClasses</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
