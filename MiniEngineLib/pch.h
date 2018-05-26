@@ -5,6 +5,10 @@
 #include <memory>
 #include <functional>
 
+#include <stdio.h>
+#include <io.h>
+#include <fcntl.h>
+
 #include "IChildWindowHandleable.h"
 #include "MiniTimer.h"
 #include "MainWindow.h"

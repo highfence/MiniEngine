@@ -70,11 +70,11 @@ namespace MiniEngineLib
 		{
 			_editWindow = new EditWindow();
 			_editWindow->InitWindow(_hInst, hWnd);
-			_editWindow->Create(400, 800, 1520, 0);
+			_editWindow->Create(350, 850, 1570, 0);
 
 			_textWindow = new TextWindow();
 			_textWindow->InitWindow(_hInst, hWnd);
-			_textWindow->Create(1920, 400, 0, 800);
+			_textWindow->Create(1920, 350, 0, 850);
 
 			break;
 		}
