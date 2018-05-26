@@ -34,7 +34,7 @@ namespace MiniEngineLib
 		return true;
 	}
 
-	BOOL MainWindow::Create(const INT width, const INT height, const INT positionX, const INT positionY)
+	BOOL MainWindow::Create(const INT width, const INT height)
 	{
 		_windowWidth = width;
 		_windowHeight = height;
@@ -44,15 +44,14 @@ namespace MiniEngineLib
 			CW_USEDEFAULT, CW_USEDEFAULT, _windowWidth, _windowHeight,
 			NULL, (HMENU)NULL, _hInst, NULL);
 
-		if (_hWnd == NULL)
+		if (_hWnd == NULL || _hWnd == INVALID_HANDLE_VALUE)
 		{
 			_isWindowCreated = FALSE;
 			return _isWindowCreated;
 		}
 
-		ShowWindow(_hWnd, _cmdShow);
+		_isWindowCreated = ShowWindow(_hWnd, _cmdShow);
 
-		_isWindowCreated = TRUE;
 		return _isWindowCreated;
 	}
 
@@ -68,6 +67,8 @@ namespace MiniEngineLib
 		// Child Window Initialize.
 		case WM_CREATE :
 		{
+
+
 			_editWindow = new EditWindow();
 			_editWindow->InitWindow(_hInst, hWnd);
 			_editWindow->Create(350, 850, 1570, 0);
@@ -88,6 +89,15 @@ namespace MiniEngineLib
 		}
 
 		return (DefWindowProc(hWnd, iMessage, wParam, lParam));
+	}
+
+	BOOL MainWindow::initializeChildWindows()
+	{
+		BOOL isInitializedWell = FALSE;
+
+
+
+		return isInitializedWell;
 	}
 
 	LRESULT CALLBACK WinMessageDispatcher(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)

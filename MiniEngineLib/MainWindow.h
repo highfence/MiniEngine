@@ -12,7 +12,7 @@ namespace MiniEngineLib
 		~MainWindow();
 
 		BOOL InitWindow(HINSTANCE hInst, INT nCmdShow);
-		BOOL Create(const INT width = 1200, const INT height = 800, const INT positionX = 0, const INT positionY = 0);
+		BOOL Create(const INT width = 1200, const INT height = 800);
 
 		VOID Update(const float deltaTime);
 
@@ -23,6 +23,8 @@ namespace MiniEngineLib
 		INT_PTR CALLBACK MainWindowProc(HWND hWnd, UINT iMesshage, WPARAM wParam, LPARAM lParam);
 
 	private :
+
+		BOOL initializeChildWindows();
 
 		HWND _hWnd;
 		HINSTANCE _hInst;
