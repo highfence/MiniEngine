@@ -9,6 +9,7 @@ namespace MiniEngineLib
 
 		using TypeVec = Vector<BaseType>;
 
+		Vector() = default;
 		Vector(BaseType X, BaseType Y, BaseType Z = 0);
 		~Vector() = default;
 

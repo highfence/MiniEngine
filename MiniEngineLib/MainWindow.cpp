@@ -68,13 +68,14 @@ namespace MiniEngineLib
 		// Child Window Initialize.
 		case WM_CREATE :
 		{
-			_editWindow = new EditWindow();
-			_editWindow->InitWindow(_hInst, hWnd);
-			_editWindow->Create(350, 850, 1570, 0);
+			//_editWindow = new EditWindow();
+			//_editWindow->InitWindow(_hInst, hWnd);
+			//_editWindow->Create(350, 850, 1570, 0);
 
-			_textWindow = new TextWindow();
-			_textWindow->InitWindow(_hInst, hWnd);
-			_textWindow->Create(1920, 350, 0, 850);
+			//_textWindow = new TextWindow();
+			//_textWindow->InitWindow(_hInst, hWnd);
+			//_textWindow->Create(1920, 350, 0, 850);
+			initializeChildWindows(hWnd);
 
 			break;
 		}
@@ -90,9 +91,19 @@ namespace MiniEngineLib
 		return (DefWindowProc(hWnd, iMessage, wParam, lParam));
 	}
 
-	BOOL MainWindow::initializeChildWindows()
+	BOOL MainWindow::initializeChildWindows(HWND hWnd)
 	{
 		BOOL isInitializedWell = FALSE;
+
+		Vector<int> divPosition(_windowWidth * 0.8f, _windowHeight * 0.75f);
+
+		_editWindow = new EditWindow();
+		_editWindow->InitWindow(_hInst, hWnd);
+		_editWindow->Create(_windowWidth - divPosition._x, _windowHeight, divPosition._x, 0);
+
+		_textWindow = new TextWindow();
+		_textWindow->InitWindow(_hInst, hWnd);
+		_textWindow->Create(divPosition._x, _windowHeight - divPosition._y, 0, divPosition._y);
 
 		return isInitializedWell;
 	}

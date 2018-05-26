@@ -24,7 +24,7 @@ namespace MiniEngineLib
 
 	private :
 
-		BOOL initializeChildWindows();
+		BOOL initializeChildWindows(HWND hWnd);
 
 		HWND _hWnd;
 		HINSTANCE _hInst;

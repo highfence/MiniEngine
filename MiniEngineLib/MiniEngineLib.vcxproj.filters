@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="WindowClasses">
       <UniqueIdentifier>{c34e2ecb-207f-4a5b-bb25-e738ce2f7d0f}</UniqueIdentifier>
     </Filter>
@@ -21,17 +13,18 @@
     <Filter Include="Utils\Debug">
       <UniqueIdentifier>{e13cd8fc-a36e-4fe4-895c-1b01944609f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\Timer">
+      <UniqueIdentifier>{8485598f-7dba-4571-8286-8067e2631ef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{8a39df6f-57a2-47fe-8288-c2a12d26845a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MiniEngine.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MiniTimer.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="EditWindow.h">
       <Filter>WindowClasses</Filter>
     </ClInclude>
@@ -53,16 +46,22 @@
     <ClInclude Include="DebugHelper.h">
       <Filter>Utils\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="MiniTimer.h">
+      <Filter>Utils\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniEngine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MiniEngine.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MiniTimer.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="EditWindow.cpp">
       <Filter>WindowClasses</Filter>
@@ -81,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="DebugHelper.cpp">
       <Filter>Utils\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniTimer.cpp">
+      <Filter>Utils\Timer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
